@@ -1,0 +1,82 @@
+/* ─── ADD THESE TO THE BOTTOM OF RobotHero.css ─────────────────────────────── */
+
+/* ── MOBILE LAYOUT ── */
+@media (max-width: 768px) {
+
+  /* Container needs enough scroll room for the phases:
+     ~200vh gives plenty of scroll distance for the transitions */
+  .robot-hero-container {
+    height: 250vh;
+  }
+
+  /* Sticky panel fills viewport */
+  .hero-sticky {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  /* Robot scene: centered horizontally, upper half of screen */
+  #scene {
+    position: absolute !important;
+    left: 50% !important;
+    top: 38% !important;
+    transform: translate(-50%, -50%) scale(0.72) !important;
+    opacity: 1;
+    transition: none; /* JS handles opacity smoothly */
+    pointer-events: none;
+  }
+
+  /* Profile image: same position as robot — they crossfade */
+  #profile-image {
+    position: absolute !important;
+    left: 50% !important;
+    top: 38% !important;
+    transform: translate(-50%, -50%) !important;
+    width: 220px !important;
+    height: 220px !important;
+    border-radius: 50% !important;
+    overflow: hidden !important;
+    opacity: 0; /* starts hidden, JS fades in */
+    border: 3px solid rgba(201, 169, 97, 0.6) !important;
+    box-shadow: 0 0 40px rgba(201, 169, 97, 0.25) !important;
+    pointer-events: none;
+  }
+
+  /* Text section: below the image area, slides up and fades in */
+  #text-section {
+    position: absolute !important;
+    left: 50% !important;
+    top: auto !important;
+    bottom: 4vh !important;
+    transform: translateY(30px) !important; /* JS overrides this */
+    width: 90% !important;
+    max-width: 420px !important;
+    translate: -50% 0 !important;
+    opacity: 0; /* starts hidden, JS fades in */
+    text-align: center !important;
+  }
+
+  /* Adjust text inside for mobile centering */
+  #text-section .ctas {
+    justify-content: center !important;
+    flex-wrap: wrap !important;
+  }
+
+  #text-section .hero-heading {
+    font-size: clamp(2rem, 8vw, 2.8rem) !important;
+  }
+
+  #text-section .role {
+    font-size: 1.1rem !important;
+  }
+
+  #text-section .bio {
+    font-size: 0.88rem !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 4 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+  }
+}
