@@ -91,14 +91,11 @@ const About = () => {
           >
             <p>
               Most of what I know about development didn’t come from following a straight path — it came from building, failing, and figuring things out along the way.
-            </p>
-            <p>
+
               I enjoy creating web experiences that are not just functional, but feel smooth and intuitive. Over time, I’ve worked deeply with React, Node.js, and modern web technologies, focusing on performance, clean structure, and thoughtful design.
-            </p>
-            <p>
+
               For me, development is more than just writing code — it’s about solving problems in a way that’s simple, efficient, and actually useful.
-            </p>
-            <p>
+
               When I’m not working on projects, I’m usually exploring new tools, experimenting with ideas, or contributing to things that help me grow as a developer.
             </p>
           </motion.div>

@@ -34,8 +34,8 @@ function App() {
           <Skills />
           <Internship />
           <Projects />
-          <Achievements />
           <Certificates />
+          <Achievements />
           <CodingProfiles />
           <Contact />
         </div>

@@ -13,8 +13,8 @@ const Navbar = () => {
     { name: 'Skills', to: 'skills' },
     { name: 'Internships', to: 'internship' },
     { name: 'Projects', to: 'projects' },
-    { name: 'Achievements', to: 'achievements' },
     { name: 'Certificates', to: 'certificates' },
+    { name: 'Achievements', to: 'achievements' },
     { name: 'Stats', to: 'coding-profiles' },
     { name: 'Contact', to: 'contact' },
   ];

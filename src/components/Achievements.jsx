@@ -1,4 +1,4 @@
-﻿import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { FaCode, FaTrophy, FaLightbulb, FaUsers, FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
@@ -6,17 +6,25 @@ const achievements = [
   {
     icon: <FaTrophy className="text-6xl text-[#c9a961] mb-6 drop-shadow-[0_0_15px_rgba(201,169,97,0.5)]" />,
     title: "Technical Interview Success",
-    description: "Cleared technical interviews across three companies, contributing to four production-level industry projects and earning a Pre-Placement Offer (PPO) for strong technical performance.",
-  },
-  {
-    icon: <FaCode className="text-6xl text-[#9b8b7e] mb-6" />,
-    title: "Consistent Coding Streak",
-    description: "Maintained 150+ consecutive days of active coding, completing 500+ problem submissions across competitive programming platforms.",
+    description: "Cleared technical interviews across three companies, contributing to four production-level industry projects.",
   },
   {
     icon: <FaLightbulb className="text-6xl text-[#c9a961] mb-6 drop-shadow-[0_0_15px_rgba(201,169,97,0.5)]" />,
     title: "Data Structures & Algorithms",
-    description: "Solved 200+ DSA problems on platforms like LeetCode, strengthening problem-solving skills and algorithmic thinking.",
+    description: (
+      <>
+        I have solved more than <strong className="text-white">675</strong> DSA problems on various coding platforms, participated in over <strong className="text-white">25</strong> LeetCode contests, achieved a maximum rating of <strong className="text-white">1637</strong>, and secured a rank in the top <strong className="text-white">18%</strong>.
+      </>
+    ),
+  },
+  {
+    icon: <FaCode className="text-6xl text-[#9b8b7e] mb-6" />,
+    title: "Consistent Coding Streak",
+    description: (
+      <>
+        I have solved coding problems for more than <strong className="text-white">365</strong> days, achieving a maximum daily streak of <strong className="text-white">101</strong> days.
+      </>
+    ),
   },
   {
     icon: <FaUsers className="text-6xl text-[#9b8b7e] mb-6" />,
