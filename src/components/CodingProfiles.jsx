@@ -1,34 +1,48 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FiExternalLink } from 'react-icons/fi';
+import { FiExternalLink, FiActivity } from 'react-icons/fi';
+import { SiLeetcode } from 'react-icons/si';
 
 const profiles = [
   {
     name: 'LeetCode',
-    tag: 'DSA',
+    username: '@parshu_0711',
     color: '#ffa116',
+    icon: <SiLeetcode className="text-3xl text-[#ffa116]" />,
     total: 575,
     calculatedTotal: 575,
-    rating: 1639,
+    boxes: [
+      { label: 'Total Solved', value: '575' },
+      { label: 'Contest Rating', value: '1,639' }
+    ],
     stats: [
       { label: 'Easy', count: 222, color: '#00b8a3' },
       { label: 'Medium', count: 336, color: '#ffc01e' },
-      { label: 'Hard', count: 17, color: '#ef4743' },
+      { label: 'Hard', count: 17, color: '#ef4743' }
     ],
+    footerLeft: 'Top 18% • Active Days: 365',
+    footerRight: 'Max Streak: 101 Days',
     image: 'https://ik.imagekit.io/parshu0711/coding_profiles/Screenshot%202026-03-24%20023111.png?updatedAt=1774447842773',
     link: 'https://leetcode.com/u/parshu_0711/'
   },
   {
     name: 'Codolio',
-    tag: 'Practice',
+    username: '@parshu_0711',
     color: '#3b82f6',
+    icon: <FiActivity className="text-3xl text-[#3b82f6]" />,
     total: 679,
     calculatedTotal: 656,
+    boxes: [
+      { label: 'Total Solved', value: '679' },
+      { label: 'Active Days', value: '369' }
+    ],
     stats: [
       { label: 'Easy', count: 255, color: '#00b8a3' },
       { label: 'Medium', count: 382, color: '#ffc01e' },
-      { label: 'Hard', count: 19, color: '#ef4743' },
+      { label: 'Hard', count: 19, color: '#ef4743' }
     ],
+    footerLeft: 'Codolio Sync',
+    footerRight: 'Max Streak: 101 Days',
     image: 'https://ik.imagekit.io/parshu0711/coding_profiles/Screenshot%202026-03-25%20010010.png',
     link: 'https://codolio.com/profile/parshu_0711'
   }
@@ -38,7 +52,7 @@ const CodingProfiles = () => {
   return (
     <section id="coding-profiles" className="py-24 bg-[#0a0a0a] relative z-10 w-full overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        
+
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -62,109 +76,82 @@ const CodingProfiles = () => {
               viewport={{ once: true, margin: "-100px" }}
               className="flex flex-col items-center w-full max-w-[500px]"
             >
-              
+
               {/* FLIP CARD OUTER WRAPPER */}
               <div className="group w-full h-[400px] sm:h-[450px] md:h-auto md:aspect-[1285/898] [perspective:1000px] shadow-2xl">
-                
+
                 {/* 3D FLIP CONTAINER */}
                 <div className="relative w-full h-full duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
-                  
-                  {/* FRONT SIDE - Optimized density to prevent overflow */}
-                  <div className="absolute inset-0 [backface-visibility:hidden] bg-[#151515] border border-gray-800 rounded-sm p-4 sm:p-5 md:p-6 flex flex-col justify-center">
-                    
+
+                  {/* FRONT SIDE */}
+                  <div className="absolute inset-0 [backface-visibility:hidden] bg-[#1e1e1e] border border-gray-800/60 rounded-sm p-4 sm:p-5 md:p-6 flex flex-col justify-between overflow-hidden">
+
+                    {/* Subtle background glow based on profile color */}
+                    <div
+                      className="absolute -top-20 -right-20 w-40 h-40 rounded-full blur-[80px] opacity-10 pointer-events-none transition-opacity duration-500 group-hover:opacity-30"
+                      style={{ backgroundColor: profile.color }}
+                    />
+
                     {/* Header */}
-                    <div className="flex flex-wrap justify-between items-center mb-4 pb-3 border-b border-gray-800/80 gap-2">
-                      <h3 className="text-xl md:text-2xl font-extrabold" style={{ color: profile.color }}>
-                        {profile.name}
-                      </h3>
-                      <span className="px-3 py-1 rounded-full text-[10px] font-semibold border border-[#c9a961]/30 text-[#c9a961] bg-[#c9a961]/10 uppercase tracking-widest">
-                        {profile.tag}
-                      </span>
-                    </div>
-
-                    {/* Total Summary */}
-                    <div className="flex flex-wrap justify-between items-center mb-4 gap-2">
-                      <div className="flex items-center gap-4">
-                        {/* Total Circular Progress */}
-                        <div className="relative w-12 h-12 md:w-14 md:h-14 flex items-center justify-center">
-                          <svg className="w-full h-full transform -rotate-90" viewBox="0 0 52 52">
-                            <circle cx="26" cy="26" r="22" fill="transparent" stroke="#252525" strokeWidth="4" />
-                            <circle 
-                              cx="26" cy="26" r="22" fill="transparent" stroke={profile.color} strokeWidth="4"
-                              strokeDasharray={2 * Math.PI * 22}
-                              strokeDashoffset={0}
-                              strokeLinecap="round"
-                            />
-                          </svg>
-                          <span className="absolute text-[10px] md:text-xs font-bold" style={{ color: profile.color }}>
-                            100%
-                          </span>
-                        </div>
-                        <div>
-                          <p className="text-gray-400 text-[10px] md:text-xs font-medium mb-0.5">Problems Solved</p>
-                          <p className="text-2xl md:text-3xl font-bold text-white tracking-tight">{profile.total}</p>
-                        </div>
+                    <div className="flex items-center gap-4 mb-4">
+                      <div className="w-12 h-12 md:w-16 md:h-16 rounded-[12px] md:rounded-[16px] bg-[#141414] border border-gray-800/80 flex items-center justify-center shadow-inner shrink-0">
+                        {profile.icon}
                       </div>
+                      <div className="min-w-0">
+                        <h3 className="text-xl md:text-2xl font-bold text-[#e8e8e8] tracking-tight truncate">{profile.name}</h3>
+                        <p className="text-[#888888] text-xs md:text-sm mt-0.5 font-medium truncate">{profile.username}</p>
+                      </div>
+                    </div>
 
-                      {profile.rating && (
-                        <div className="text-right pl-2">
-                          <p className="text-gray-400 text-[10px] md:text-xs font-medium mb-0.5">Contest Rating</p>
-                          <p className="text-lg md:text-xl font-bold text-white">{profile.rating}</p>
+                    {/* Two Stats Boxes */}
+                    <div className="grid grid-cols-2 gap-3 md:gap-4 mb-4">
+                      {profile.boxes.map((box, idx) => (
+                        <div key={idx} className="bg-[#242424] rounded-xl md:rounded-2xl p-3 md:p-5 border border-gray-800/40 shadow-sm flex flex-col justify-center">
+                          <p className="text-[#a0a0a0] text-[10px] md:text-xs font-medium mb-1 truncate">{box.label}</p>
+                          <p className="text-xl md:text-[28px] font-bold text-[#eeb041] leading-tight font-sans tracking-tight">
+                            {box.value}
+                          </p>
                         </div>
-                      )}
+                      ))}
                     </div>
 
-                    {/* Detailed Stats */}
-                    <div className="space-y-2.5">
-                      {profile.stats.map((stat) => {
-                        const percentage = Math.round((stat.count / profile.calculatedTotal) * 100) || 0;
-                        const circleCircumference = 2 * Math.PI * 14;
-                        const strokeDashoffset = circleCircumference - (percentage / 100) * circleCircumference;
-                        
-                        return (
-                          <div key={stat.label} className="grid grid-cols-[auto_1fr] items-center gap-4 bg-[#1a1a1a] p-2 pr-4 rounded-xl w-full">
-                            {/* Circular Progress for difficulty */}
-                            <div className="relative w-9 h-9 md:w-10 md:h-10 flex items-center justify-center -ml-1">
-                              <svg className="w-full h-full transform -rotate-90" viewBox="0 0 36 36">
-                                <circle cx="18" cy="18" r="14" fill="transparent" stroke="#252525" strokeWidth="3" />
-                                <circle 
-                                  cx="18" cy="18" r="14" fill="transparent" stroke={stat.color} strokeWidth="3"
-                                  strokeDasharray={circleCircumference}
-                                  strokeDashoffset={strokeDashoffset}
-                                  strokeLinecap="round"
-                                  className="transition-all duration-1000 ease-out"
-                                />
-                              </svg>
-                              <span className="absolute text-[8px] md:text-[9px] font-bold" style={{ color: stat.color }}>
-                                {percentage}%
-                              </span>
-                            </div>
-
-                            {/* Text and Linear Bar */}
-                            <div className="flex justify-between items-center w-full">
-                              <div className="min-w-[44px] sm:min-w-[50px] md:min-w-[60px]">
-                                <p className="text-gray-400 text-[8px] sm:text-[9px] md:text-[10px] font-medium uppercase tracking-wider mb-0.5">{stat.label}</p>
-                                <p className="text-white font-bold text-xs sm:text-sm">{stat.count}</p>
-                              </div>
-                              <div className="w-full max-w-[60px] sm:max-w-[80px] md:max-w-[100px] h-1.5 bg-[#252525] rounded-full overflow-hidden ml-2 sm:ml-3">
-                                 <div 
-                                  className="h-full rounded-full transition-all duration-1000 ease-out" 
-                                  style={{ 
-                                    width: `${(stat.count / Math.max(...profile.stats.map(s => s.count))) * 100}%`, 
-                                    backgroundColor: stat.color 
-                                  }} 
-                                />
-                              </div>
-                            </div>
-                          </div>
-                        );
-                      })}
+                    {/* Progress Bar Section */}
+                    <div className="mb-4">
+                      <div className="flex justify-between items-center text-[10px] md:text-xs font-semibold mb-2 md:mb-3">
+                        {profile.stats.map(s => (
+                          <span key={s.label} style={{ color: s.color }}>
+                            {s.label}: {s.count}
+                          </span>
+                        ))}
+                      </div>
+                      <div className="w-full h-1.5 md:h-2 rounded-full overflow-hidden flex bg-[#333]">
+                        {profile.stats.map(s => {
+                          const percentage = (s.count / profile.total) * 100;
+                          return (
+                            <div
+                              key={s.label}
+                              style={{
+                                width: `${percentage}%`,
+                                backgroundColor: s.color
+                              }}
+                              className="h-full transition-all duration-1000"
+                            />
+                          );
+                        })}
+                      </div>
                     </div>
+
+                    {/* Footer Section */}
+                    <div className="flex justify-between items-center text-[#888888] text-[10px] md:text-xs font-medium mt-auto pt-4 border-t border-gray-800/60">
+                      <span>{profile.footerLeft}</span>
+                      <span>{profile.footerRight}</span>
+                    </div>
+
                   </div>
 
                   {/* BACK SIDE */}
-                  <div 
-                    className="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)] bg-[#151515] border border-[#c9a961]/50 rounded-sm overflow-hidden cursor-pointer" 
+                  <div
+                    className="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)] bg-[#151515] border border-[#c9a961]/50 rounded-sm overflow-hidden cursor-pointer"
                     onClick={() => window.open(profile.link, '_blank')}
                   >
                     <img src={profile.image} alt="Profile Screenshot" className="w-full h-full object-cover object-left-top opacity-90" />
@@ -174,17 +161,17 @@ const CodingProfiles = () => {
                 </div>
               </div>
 
-              {/* EXTERNAL VIEW PROFILE LINK - Always visible, doesn't trigger flip */}
-              <a 
+              {/* EXTERNAL VIEW PROFILE LINK */}
+              <a
                 href={profile.link}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-6 flex items-center justify-center bg-[#151515] border border-gray-800 hover:border-[#c9a961]/50 text-gray-300 hover:text-[#c9a961] px-6 py-3 rounded-full font-medium text-sm transition-all duration-300 shadow-xl"
               >
-                <FiExternalLink className="mr-2 text-lg" /> 
+                <FiExternalLink className="mr-2 text-lg" />
                 Visit {profile.name} Profile
               </a>
-              
+
             </motion.div>
           ))}
         </div>

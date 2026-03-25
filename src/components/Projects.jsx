@@ -24,6 +24,20 @@ const projects = [
     tech: ['Next.js', 'React', 'Tailwind CSS', 'JavaScript', 'Responsive Design'],
     live: 'https://www.learncometedu.com/',
   },
+  {
+    title: 'Manufacturing Execution System (MES)',
+    description: 'Architected a full-stack MES bridging ERP systems with real-time shop-floor workflow orchestration. Built a collaborative drag-and-drop workflow engine with live synchronization using WebSockets, and enforced multi-tenant data isolation with hierarchical RBAC and production analytics dashboards.',
+    image: 'https://ik.imagekit.io/parshu0711/Projects/Screenshot%202026-03-26%20033135.png',
+    tech: ['React', 'Node.js', 'Express', 'MongoDB', 'WebSockets'],
+    live: 'https://github.com/SidusSolvere/manufacturing-execution-system',
+  },
+  {
+    title: 'Tempus Flow – Time Productivity Management Website',
+    description: 'Built a full-stack productivity platform utilized by users to manage daily tasks via a calendar and task board. Enabled secure user authentication with PHP sessions, achieving 100% session stability across logins. Implemented task CRUD operations with real-time status tracking, handling 1000+ task entries efficiently.',
+    image: 'https://ik.imagekit.io/parshu0711/Projects/Screenshot%202025-04-17%20104547.png',
+    tech: ['HTML', 'Tailwind CSS', 'JavaScript', 'PHP', 'MySQL'],
+    live: 'https://github.com/parshu0711/Tempus-Flow',
+  },
 ];
 
 function seededRandom(seed) {
@@ -140,7 +154,7 @@ const FallingTagsFloor = ({ tech, isVisible, containerWidth }) => {
           />
 
           <span
-            className="flex items-center justify-center h-[30px] rounded-lg text-xs font-bold whitespace-nowrap select-none w-full"
+            className="flex items-center justify-center h-[30px] rounded-sm text-xs font-bold whitespace-nowrap select-none w-full"
             style={{
               background: 'rgba(8,8,8,0.96)',
               border: '1px solid rgba(201,169,97,0.38)',
@@ -173,7 +187,7 @@ const RightPanel = ({ image, title, tech, projectIndex, isVisible, live }) => {
     <div ref={panelRef} className="w-full md:w-[58%] flex flex-col p-6 md:p-8 gap-3">
       {/* Clean image with hover overlay */}
       <div
-        className="w-full rounded-2xl overflow-hidden flex-shrink-0 relative group cursor-pointer"
+        className="w-full rounded-sm overflow-hidden flex-shrink-0 relative group cursor-pointer"
         style={{
           aspectRatio: '16/9',
           border: '1px solid rgba(201,169,97,0.15)',
@@ -187,16 +201,16 @@ const RightPanel = ({ image, title, tech, projectIndex, isVisible, live }) => {
             href={live}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-[#c9a961] hover:bg-[#b09252] text-[#1a1a1a] text-sm font-bold transition-all shadow-[0_4px_15px_rgba(201,169,97,0.3)] hover:shadow-[0_4px_25px_rgba(201,169,97,0.5)]"
+            className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-sm bg-[#c9a961] hover:bg-[#b09252] text-[#1a1a1a] text-sm font-bold transition-all shadow-[0_4px_15px_rgba(201,169,97,0.3)] hover:shadow-[0_4px_25px_rgba(201,169,97,0.5)]"
           >
-            <FaExternalLinkAlt className="text-base" /> Visit Site
+            <FaExternalLinkAlt className="text-base" /> {live && live.includes('github') ? 'View Code' : 'Visit Site'}
           </a>
         </div>
       </div>
 
       {/* Floor — compact, no label */}
       <div
-        className="relative w-full rounded-xl"
+        className="relative w-full rounded-sm"
         style={{
           background: 'rgba(0,0,0,0.25)',
           border: '1px solid rgba(201,169,97,0.07)',
@@ -242,10 +256,10 @@ const Card = ({ i, title, description, image, live, tech, progress, range, targe
       <motion.div
         ref={cardRef}
         style={{ scale, top: `calc(-5vh + ${i * 25}px)` }}
-        className="relative w-full max-w-[1020px] rounded-3xl overflow-visible origin-top"
+        className="relative w-full max-w-[1020px] rounded-sm overflow-visible origin-top"
       >
         <div
-          className="absolute inset-0 rounded-3xl"
+          className="absolute inset-0 rounded-sm"
           style={{
             background: 'linear-gradient(135deg, #1c1c1c 0%, #181818 100%)',
             border: '1px solid rgba(201,169,97,0.18)',
@@ -268,13 +282,13 @@ const Card = ({ i, title, description, image, live, tech, progress, range, targe
             >
               {title}
             </h3>
-            <p className="text-[#7a7a8a] text-s leading-relaxed flex-1">{description}</p>
+            <p className="text-[#7a7a8a] text-sm leading-relaxed flex-1">{description}</p>
             <div className="mt-8">
               <a
                 href={live}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-7 py-3 rounded-xl text-sm font-bold"
+                className="inline-flex items-center gap-2 px-7 py-3 rounded-sm text-sm font-bold"
                 style={{
                   background: 'linear-gradient(135deg, #c9a961, #a8883f)',
                   color: '#111',
@@ -282,7 +296,7 @@ const Card = ({ i, title, description, image, live, tech, progress, range, targe
                 }}
               >
                 <FaExternalLinkAlt className="text-xs" />
-                Live Demo
+                {live && live.includes('github') ? 'GitHub' : 'Live Demo'}
               </a>
             </div>
           </div>
