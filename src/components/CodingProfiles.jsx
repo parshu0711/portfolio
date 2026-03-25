@@ -15,7 +15,7 @@ const profiles = [
       { label: 'Medium', count: 336, color: '#ffc01e' },
       { label: 'Hard', count: 17, color: '#ef4743' },
     ],
-    image: 'https://ik.imagekit.io/parshu0711/coding_profiles/Screenshot%202026-03-24%20023111.png',
+    image: 'https://ik.imagekit.io/parshu0711/coding_profiles/Screenshot%202026-03-24%20023111.png?updatedAt=1774447842773',
     link: 'https://leetcode.com/u/parshu_0711/'
   },
   {

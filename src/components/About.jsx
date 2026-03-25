@@ -3,11 +3,11 @@ import { motion } from "framer-motion";
 
 const About = () => {
   return (
-    <section 
-        id="about" 
-        className="py-32 min-h-screen bg-[#0a0a0a] relative overflow-hidden flex items-center justify-center"
+    <section
+      id="about"
+      className="py-32 min-h-screen bg-[#0a0a0a] relative overflow-hidden flex items-center justify-center"
     >
-      
+
       {/* Main Content Container */}
       <motion.div
         className="relative z-10 w-full max-w-4xl mx-auto px-6 flex flex-col items-center justify-center text-center"
@@ -16,7 +16,7 @@ const About = () => {
         transition={{ duration: 0.8 }}
         viewport={{ once: true, margin: "-100px" }}
       >
-        
+
         {/* RIGHT: CONTENT */}
         <motion.div
           className="w-full"
@@ -115,27 +115,30 @@ const About = () => {
             <h3 className="text-2xl font-light text-white mb-6">
               <span className="text-[#c9a961]">Education</span>
             </h3>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {/* Lovely Professional University */}
               <div className="pb-4 border-b md:border-b-0 md:border-r border-gray-700 md:pr-8">
                 <h4 className="text-white font-semibold mb-1">Lovely Professional University</h4>
                 <p className="text-gray-400 text-sm mb-1">Bachelor of Technology - Computer Science and Engineering</p>
-                <p className="text-[#c9a961] text-sm font-light">CGPA: 7.00</p>
+                <p className="text-gray-500 text-xs mb-1">Punjab</p>
+                <p className="text-[#c9a961] text-sm font-light">CGPA: 8.13</p>
               </div>
 
-              {/* Holy Cross Public School */}
+              {/* Shri Gorakshya Higher Secondary School */}
               <div className="pb-4 border-b md:border-b-0 md:border-r border-gray-700 md:pr-8">
-                <h4 className="text-white font-semibold mb-1">Holy Cross Public School</h4>
-                <p className="text-gray-400 text-sm mb-1">Intermediate (Class XII)</p>
-                <p className="text-[#c9a961] text-sm font-light">Percentage: 75.8%</p>
+                <h4 className="text-white font-semibold mb-1">Shri Gorakshya Higher Secondary School</h4>
+                <p className="text-gray-400 text-sm mb-1">Class XII (PCM)</p>
+                <p className="text-gray-500 text-xs mb-1">Chh. Sambhajinagar, Maharashtra</p>
+                <p className="text-[#c9a961] text-sm font-light">Percentage: 87.83</p>
               </div>
 
-              {/* Holy Mission Sr. Sec. School */}
+              {/* Jawahar Navodaya Vidyalaya */}
               <div>
-                <h4 className="text-white font-semibold mb-1">Holy Mission Sr. Sec. School</h4>
+                <h4 className="text-white font-semibold mb-1">Jawahar Navodaya Vidyalaya</h4>
                 <p className="text-gray-400 text-sm mb-1">Matriculation (Class X)</p>
-                <p className="text-[#c9a961] text-sm font-light">Percentage: 82.8%</p>
+                <p className="text-gray-500 text-xs mb-1">Kannad, Chh. Sambhajinagar</p>
+                <p className="text-[#c9a961] text-sm font-light">Percentage: 90.20</p>
               </div>
             </div>
           </motion.div>
